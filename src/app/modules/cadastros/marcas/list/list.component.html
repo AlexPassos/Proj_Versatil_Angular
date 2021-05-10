@@ -1,0 +1,33 @@
+<p-table [value]="listMarcas" selectionMode="single" styleClass="p-datatable-sm p-datatable-striped"
+[paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} registros"
+[rowsPerPageOptions]="[5,10,25,50]">
+  <ng-template pTemplate="header">
+      <tr>
+          <th pSortableColumn="descricao">Nome da marca <p-sortIcon field="descricao"></p-sortIcon></th>
+          <th style="width:3rem"></th>
+          <th style="width:3rem"></th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-bancos>
+      <tr>
+          <td>{{bancos.descricao}}</td>
+          <td>
+              <button type="button"  class="btn bg-gradient-secondary btn-sm"
+              (click)="botaoEditar('edit', bancos)">
+                <i class="fas fa-edit"></i>
+              </button>
+          </td>
+          <td>
+              <button type="button"  class="btn bg-gradient-danger btn-sm"
+              (click)="confirmPosition('bottom', bancos)">
+                <i class="fas fa-trash"></i>
+              </button>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="position" [baseZIndex]="10000" rejectButtonStyleClass="p-button-outlined"></p-confirmDialog>
+
+<p-toast position="bottom-center" key="bc"></p-toast>

@@ -1,0 +1,29 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+  <div class="form-group col-3">
+
+    <mat-form-field>
+      <mat-label>Descrição do serviço</mat-label>
+      <input matInput formControlName="descricao" required>
+    </mat-form-field>
+    <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+
+  </div>
+
+  <div class="form-group col-3">
+
+    <mat-form-field>
+      <mat-label>Valor</mat-label>
+      <input matInput currencyMask  formControlName="valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" required>
+    </mat-form-field>
+    <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+
+  </div>
+
+  <div class="row">
+    <button id="btnsalvar" type="submit" class="btn bg-gradient-info ">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="botaoVoltar('list')">Voltar</button>
+  </div>
+</form>
+
+<p-toast position="bottom-center" key="bc"></p-toast>

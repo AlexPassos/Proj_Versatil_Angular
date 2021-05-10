@@ -1,0 +1,42 @@
+import { EmpresaModel } from './../../empresas/model/empresa-model';
+import { CidadeModel } from "../../../../shared/models/cidade-model";
+import { UfModel } from "../../../../shared/models/uf-model";
+
+export class ColaboradorModel {
+  id!: number;
+  data!: Date;
+  situacao!: boolean;
+  nome!: string;
+  cargo!: string;
+  nascimento!: Date;
+  rg!: string;
+  cpf!: string;
+  carteira!: string;
+  pis!: string;
+  titulo!: string;
+  habilitacao!: string;
+  reservista!: string;
+  filiacao!: string;
+  admissao!: Date;
+  demissao!: Date;
+  salario!: number;
+  endereco!: string;
+  numero!: string;
+  complemento!: string;
+  bairro!: string;
+  cidadeID!: number;
+  ufID!: number;
+  cep!: string;
+  telefone!: string;
+  celular!: string;
+  email!: string;
+  obs!: string;
+  empresaID!: number;
+  nivel!: string;
+  login!: string;
+  senha!: string;
+  acesso!: boolean;
+  empresa!: EmpresaModel;
+  cidade!: CidadeModel;
+  uf!: UfModel;
+}

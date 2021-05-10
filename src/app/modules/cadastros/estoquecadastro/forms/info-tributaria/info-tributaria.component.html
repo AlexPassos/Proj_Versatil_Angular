@@ -1,0 +1,140 @@
+<div [formGroup]="formulario">
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <mat-form-field>
+        <mat-label>Situação tributária</mat-label>
+        <mat-select formControlName="tribicmsID">
+          <mat-option *ngFor="let icms of listIcms" [value]="icms.id">
+            {{icms.sitr_desc}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Alíq. de crédito</mat-label>
+        <input matInput formControlName="aliquotacredito">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Alíq. Red. Base ICMS</mat-label>
+        <input matInput formControlName="aliquotabaseicms">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Alíquota ICMS</mat-label>
+        <input matInput formControlName="aliquotaicms">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Pauta fiscal</mat-label>
+        <input matInput formControlName="pautafiscal">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Alíq. Red. Base ICMS ST</mat-label>
+        <input matInput formControlName="aliquotabaseicmsst">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Alíq. ICMS ST</mat-label>
+        <input matInput formControlName="aliquotaicmsst">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Alíquota ISS</mat-label>
+        <input matInput formControlName="aliquotaiss">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Cest</mat-label>
+        <input matInput formControlName="cest">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-9">
+      <mat-form-field>
+        <mat-label>Situação tributária PIS</mat-label>
+        <mat-select formControlName="tribpisID">
+          <mat-option *ngFor="let pis of listPis" [value]="pis.id">
+            {{pis.descricao}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Alíquota PIS</mat-label>
+        <input matInput formControlName="aliquotapis">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-9">
+      <mat-form-field>
+        <mat-label>Situação tributária COFINS</mat-label>
+        <mat-select formControlName="tribcofinsID">
+          <mat-option *ngFor="let cofins of listCofins" [value]="cofins.id">
+            {{cofins.descricao}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Alíquota COFINS</mat-label>
+        <input matInput formControlName="aliquotacofins">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-9">
+      <mat-form-field>
+        <mat-label>Situação tributária IPI</mat-label>
+        <mat-select formControlName="tribipiID">
+          <mat-option *ngFor="let ipi of listIpi" [value]="ipi.id">
+            {{ipi.descricao}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Alíquota IPI</mat-label>
+        <input matInput formControlName="aliquotaipi">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+</div>

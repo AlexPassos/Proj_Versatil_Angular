@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/* @import '@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+/*https://medium.com/@treviergits/angular-material-theme-color-options-7d5968cb7460 */
+
+/* html, body { height: 100%; } */
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+/* @import '~font-awesome/css/font-awesome.css'; */
+
+mat-form-field.mat-form-field {
+  font-size: 16px;
+  display: inline;
+}
+
+button{
+  margin-left: 5px;
+}
+

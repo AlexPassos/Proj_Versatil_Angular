@@ -1,0 +1,58 @@
+<div [formGroup]="formulario">
+  <div class="form-row">
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Gênero</mat-label>
+        <mat-select matInput formControlName="sexo">
+          <mat-option [value]=2>Selecione</mat-option>
+          <mat-option [value]=1>Masculino</mat-option>
+          <mat-option [value]=0>Feminino</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-3">
+      <mat-form-field>
+        <mat-label>Profissão</mat-label>
+        <mat-select formControlName="profissaoID">
+          <mat-option *ngFor="let profissao of listProfissoes" [value]="profissao.id">
+            {{profissao.descricao}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Estado civil</mat-label>
+        <mat-select matInput formControlName="civil">
+          <mat-option [value]=0>Selecione</mat-option>
+          <mat-option [value]=1>Solteiro(a)</mat-option>
+          <mat-option [value]=2>Casado(a)</mat-option>
+          <mat-option [value]=3>Viúvo(a)</mat-option>
+          <mat-option [value]=4>Desquitado(a)</mat-option>
+          <mat-option [value]=5>Divorciado(a)</mat-option>
+          <mat-option [value]=6>Outro</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-sm-3" style="margin-top: 15px;">
+      <mat-checkbox (change)="disabilitaInputs()" formControlName="sitlimite">Cliente terá limite de compra?
+      </mat-checkbox>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Valor do limite</mat-label>
+        <input matInput currencyMask formControlName="limite"
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+</div>

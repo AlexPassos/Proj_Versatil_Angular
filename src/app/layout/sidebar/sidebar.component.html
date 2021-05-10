@@ -1,0 +1,291 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar elevation-4 sidebar-light-info">
+  <!-- Brand Logo -->
+  <div style="text-align: center;">
+      <a class="brand-link navbar-info" asp-action="Index" asp-controller="Home">
+          <img src="assets/imagens/logoversatilp.png" alt="Versátil" class="elevation-0" width="80%" style="opacity: .8">
+
+      </a>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+              <img src="assets/imagens/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+              <a href="#" class="d-block">Alex Passos</a>
+          </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+              <li class="nav-item">
+                  <a class="nav-link navbar-info active"
+                      asp-action="Index" asp-controller="Home">
+                      <i class="nav-icon fas fa-home"></i>
+                      <p>
+                          Home
+                          <i class="right fas fa-angle-right"></i>
+                      </p>
+                  </a>
+
+              </li>
+              <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-archive"></i>
+                      <p>
+                          Cadastro
+                          <i class="fas fa-angle-left right"></i>
+                      </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                          <a routerLink="/empresas" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Cadastro da empresa</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="/bancos" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Cadastro de bancos</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="/colaboradores" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Cadastro de colaboradores</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="/clientes" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Cadastro de fornecedores</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="/marcas" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Cadastro de marcas</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="estoquecadastro" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Cadastro de produtos</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a  routerLink="/servicos" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Cadastro de serviços</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="/setores" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Cadastro de setores</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="/planocontas" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Plano de contas</p>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/clientes" class="nav-link">
+                      <i class="nav-icon fas fa-users"></i>
+                      <p>
+                          Clientes
+                          <i class="right fas fa-angle-right"></i>
+                      </p>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-edit"></i>
+                      <p>
+                          Vendas
+                          <i class="right fas fa-angle-right"></i>
+                      </p>
+                  </a>
+              </li>
+              <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-clipboard"></i>
+                      <p>
+                          Ordem de serviços
+                          <i class="fas fa-angle-right right"></i>
+                      </p>
+                  </a>
+              </li>
+              <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fa fa-dollar-sign"></i>
+                      <p>
+                          Financeiro
+                          <i class="fas fa-angle-left right"></i>
+                      </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                          <a href="pages/tables/simple.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Caixa - Loja</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/tables/data.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Caixa - Geral</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/tables/jsgrid.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Contas a pagar</p>
+                          </a>
+                      </li>
+
+                      <li class="nav-item">
+                          <a href="pages/tables/jsgrid.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Contas a receber</p>
+                          </a>
+                      </li>
+
+                      <li class="nav-item">
+                          <a href="pages/tables/jsgrid.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Controle bancário</p>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-th"></i>
+                      <p>
+                          Estoque
+                          <i class="fas fa-angle-left right"></i>
+                      </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                          <a href="pages/mailbox/mailbox.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Verificar estoque</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" asp-action="Index" asp-controller="EstoqueEntrada">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Entrada no estoque</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/mailbox/read-mail.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Saída do estoque</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/mailbox/read-mail.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Tabela de preços</p>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-print"></i>
+                      <p>
+                          Relatórios
+                          <i class="fas fa-angle-left right"></i>
+                      </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                          <a href="pages/examples/invoice.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Análise de caixa</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/examples/profile.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Relatório de auditoria</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/examples/e-commerce.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Relatório de caixa</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/examples/projects.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Relatório financeiro</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/examples/project-add.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Relatório bancário</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/examples/project-edit.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Relatório de ranking</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="pages/examples/project-detail.html" class="nav-link">
+                              <i class="fas fa-angle-right nav-icon"></i>
+                              <p>Relatório de vendas</p>
+                          </a>
+                      </li>
+
+                  </ul>
+              </li>
+
+
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="fas fa-book nav-icon"></i>
+                      <p>Agenda de contatos</p>
+                      <i class="fas fa-angle-right right"></i>
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-file-invoice"></i>
+                      <p>
+                          Requisições
+                          <i class="fas fa-angle-right right"></i>
+                      </p>
+                  </a>
+
+              </li>
+
+
+          </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

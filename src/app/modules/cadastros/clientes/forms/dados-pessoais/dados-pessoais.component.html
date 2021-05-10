@@ -1,0 +1,179 @@
+<div [formGroup]="formulario">
+  <div class="form-row">
+    <div class="form-group col-sm-1">
+      <mat-form-field>
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="id" readonly>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Data do cadastro</mat-label>
+        <input matInput formControlName="datacad" [matDatepicker]="picker" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Situação do cliente</mat-label>
+        <mat-select matInput formControlName="situacao" required>
+          <mat-option [value]=true>Ativo</mat-option>
+          <mat-option [value]=false>Inativo</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Tipo do cliente</mat-label>
+        <mat-select matInput formControlName="tipo" (ngModelChange)="disabilitaInputs()" required>
+          <mat-option [value]=1>Pessoa física</mat-option>
+          <mat-option [value]=2>Pessoa jurídica</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>CPF/CNPJ</mat-label>
+        <input matInput formControlName="cpfcnpj" mask="CPF_CNPJ" (blur)="verificaCpfCnpj($event)" required>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-7">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-5">
+      <mat-form-field>
+        <mat-label>Fantasia</mat-label>
+        <input matInput formControlName="fantasia">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>RG/IE</mat-label>
+        <input matInput formControlName="rgie">
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Orgão emissor</mat-label>
+        <input matInput formControlName="orgaoemissor">
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Data de emissão</mat-label>
+        <input matInput formControlName="dataemissao" [matDatepicker]="dtemissao">
+        <mat-datepicker-toggle matSuffix [for]="dtemissao"></mat-datepicker-toggle>
+        <mat-datepicker #dtemissao></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Data de nascimento</mat-label>
+        <input matInput formControlName="nascimento" [matDatepicker]="dtnascimento">
+        <mat-datepicker-toggle matSuffix [for]="dtnascimento"></mat-datepicker-toggle>
+        <mat-datepicker #dtnascimento></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Telefone</mat-label>
+        <input matInput formControlName="telefone" mask='(00) 0000-0000'>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Celular</mat-label>
+        <input matInput formControlName="celularfax" mask='(00) 00000-0000'>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>CEP</mat-label>
+        <input matInput formControlName="cep" mask='00.000-000'>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-5">
+      <mat-form-field>
+        <mat-label>Endereço</mat-label>
+        <input matInput formControlName="endereco">
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Número</mat-label>
+        <input matInput formControlName="numero">
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Complemento</mat-label>
+        <input matInput formControlName="complemento">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Bairro</mat-label>
+        <input matInput formControlName="bairro">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-2">
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="ufID" (ngModelChange)="listarCidades($event)">
+          <mat-option *ngFor="let estado of listEstados" [value]="estado.id">
+            {{estado.estado}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-3">
+      <mat-form-field>
+        <mat-label>Cidade</mat-label>
+        <mat-select formControlName="cidadeID">
+          <mat-select-filter [placeholder]="'Pesquisar'" [displayMember]="'nome'" [array]="listCidades"
+            (filteredReturn)="filterCidades = $event"></mat-select-filter>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let cidade of filterCidades" [value]="cidade.id">
+            {{cidade.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div class="form-group col-sm-4">
+      <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+</div>

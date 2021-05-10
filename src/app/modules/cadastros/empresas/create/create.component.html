@@ -1,0 +1,131 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+        <mat-form-field>
+          <mat-label>Razão social</mat-label>
+          <input matInput formControlName="razao" required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-6">
+      <mat-form-field>
+        <mat-label>Nome fantasia</mat-label>
+        <input matInput formControlName="fantasia" required>
+      </mat-form-field>
+      <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <mat-form-field>
+          <mat-label>Insc. Estadual</mat-label>
+          <input matInput formControlName="ie" required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-3">
+        <mat-form-field>
+          <mat-label>CNPJ</mat-label>
+          <input matInput formControlName="cnpj" mask='00.000.000/0000-00' required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-3">
+        <mat-form-field>
+          <mat-label>Telefone 01</mat-label>
+          <input matInput formControlName="telefone" mask='(00) 0000-0000' required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-3">
+        <mat-form-field>
+          <mat-label>Telefone 02</mat-label>
+          <input matInput formControlName="fax" mask='(00) 0000-0000' required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-2">
+        <mat-form-field>
+          <mat-label>CEP</mat-label>
+          <input matInput formControlName="cep" mask='00.000-000' required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-5">
+        <mat-form-field>
+          <mat-label>Endereço</mat-label>
+          <input matInput formControlName="endereco" required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-2">
+        <mat-form-field>
+          <mat-label>Número</mat-label>
+          <input matInput formControlName="numero" required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-3">
+        <mat-form-field>
+          <mat-label>Complemento</mat-label>
+          <input matInput formControlName="complemento" required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <mat-form-field>
+          <mat-label>Bairro</mat-label>
+          <input matInput formControlName="bairro" required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-2">
+        <mat-form-field>
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="ufID" (ngModelChange)="listarCidades($event)" required>
+            <mat-option *ngFor="let estado of listEstados" [value]="estado.id">
+              {{estado.estado}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-3">
+        <mat-form-field>
+          <mat-label>Cidade</mat-label>
+          <mat-select formControlName="cidadeID" required>
+            <mat-select-filter [placeholder]="'Pesquisar'" [displayMember]="'nome'" [array]="listCidades" (filteredReturn)="filterCidades = $event"></mat-select-filter>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let cidade of filterCidades" [value]="cidade.id">
+              {{cidade.nome}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+    <div class="form-group col-md-4">
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" required>
+        </mat-form-field>
+        <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+    </div>
+</div>
+
+
+  <div class="row">
+    <button id="btnsalvar" type="submit" class="btn bg-gradient-info ">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="botaoVoltar('list')">Voltar</button>
+  </div>
+</form>
+
+<p-toast position="bottom-center" key="bc"></p-toast>

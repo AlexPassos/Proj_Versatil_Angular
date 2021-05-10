@@ -1,0 +1,104 @@
+<div [formGroup]="formulario">
+  <div class="form-row">
+    <div class="form-group col-sm-1">
+      <mat-form-field>
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="id" readonly>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Data do cadastro</mat-label>
+        <input matInput formControlName="datacad" [matDatepicker]="picker" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Situação do produto</mat-label>
+        <mat-select matInput formControlName="situacao" required>
+          <mat-option [value]=true>Ativo</mat-option>
+          <mat-option [value]=false>Inativo</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-6">
+      <mat-form-field>
+        <mat-label>Descrição do produto</mat-label>
+        <input matInput formControlName="descricao" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-2">
+      <mat-form-field>
+        <mat-label>Escolha a unidade</mat-label>
+        <mat-select formControlName="unidadesID">
+          <mat-option *ngFor="let unidade of listUnidades" [value]="unidade.id">
+            {{unidade.descricao}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-4">
+      <mat-form-field>
+        <mat-label>Escolha a marca</mat-label>
+        <mat-select formControlName="marcasID">
+          <mat-option *ngFor="let marca of listMarcas" [value]="marca.id">
+            {{marca.descricao}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>NCM</mat-label>
+        <input matInput formControlName="ncm">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-2">
+      <mat-form-field>
+        <mat-label>CFOP</mat-label>
+        <mat-select formControlName="cfopID">
+          <mat-option *ngFor="let cfop of listCfop" [value]="cfop.id">
+            {{cfop.cfop}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Peso</mat-label>
+        <input matInput formControlName="peso">
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Comissão(%)</mat-label>
+        <input matInput formControlName="comissao">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Valor de venda</mat-label>
+        <input matInput currencyMask formControlName="valor"
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+</div>

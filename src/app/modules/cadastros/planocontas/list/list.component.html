@@ -1,0 +1,17 @@
+<div class="card collapsed-card elevation-1" *ngFor="let demo of listDemonstrativos">
+  <div class="card-header">
+    <div class="card-title">1 - {{demo.nome}}</div>
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card-body" style="padding: 0px 0px 0px 20px">
+    <!--GRUPOS-->
+    <app-list-grupos></app-list-grupos>
+    <!--GRUPOS-->
+  </div>
+  <!-- /.card-body-demonstrativo -->
+
+</div>

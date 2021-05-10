@@ -1,0 +1,25 @@
+<div class="containerPage">
+  <div class="card card-info card-outline">
+      <div class="card-header">
+          <div class="card-title">{{tituloPagina}}</div>
+          <div class="card-tools">
+              <button class="btn bg-gradient-info btn-sm btncadastro" (click)="ExibirView('create')">
+                 Novo cadastro
+              </button>
+          </div>
+      </div>
+      <div class="card-body">
+
+          <div *ngIf="strView === 'list';">
+            <app-list-banco (btnEditar)="ExibirView($event)"></app-list-banco>
+          </div>
+          <div *ngIf="strView === 'create';">
+            <app-create-banco (btnVoltar)="ExibirView($event)"></app-create-banco>
+          </div>
+          <div *ngIf="strView === 'edit';">
+            <app-edit-banco (btnVoltar)="ExibirView($event)"></app-edit-banco>
+          </div>
+
+      </div>
+  </div>
+</div>

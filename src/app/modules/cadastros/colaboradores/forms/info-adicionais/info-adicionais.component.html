@@ -1,0 +1,69 @@
+<div [formGroup] = "formulario">
+  <div class="form-row">
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Data de admissão</mat-label>
+        <input matInput formControlName="admissao" [matDatepicker]="adm">
+        <mat-datepicker-toggle matSuffix [for]="adm"></mat-datepicker-toggle>
+        <mat-datepicker #adm></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <mat-form-field>
+        <mat-label>Data de demissão</mat-label>
+        <input matInput formControlName="demissao" [matDatepicker]="dem">
+        <mat-datepicker-toggle matSuffix [for]="dem"></mat-datepicker-toggle>
+        <mat-datepicker #dem></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-3">
+        <mat-form-field>
+          <mat-label>Salário</mat-label>
+          <input matInput currencyMask formControlName="salario"
+            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+        </mat-form-field>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-4">
+      <mat-form-field>
+        <mat-label>Carteira de trabalho</mat-label>
+        <input matInput formControlName="carteira">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <mat-form-field>
+        <mat-label>PIS</mat-label>
+        <input matInput formControlName="pis">
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-4">
+      <mat-form-field>
+        <mat-label>Título eleitoral</mat-label>
+        <input matInput formControlName="titulo">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-4">
+      <mat-form-field>
+        <mat-label>Habilitação</mat-label>
+        <input matInput formControlName="habilitacao">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <mat-form-field>
+        <mat-label>Reservista</mat-label>
+        <input matInput formControlName="reservista">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+</div>
