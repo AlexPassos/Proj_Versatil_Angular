@@ -15,5 +15,5 @@ export interface ISubgruposService {
   getSubgrupo(): ContasSubgruposModel;
 
   consSubgrupo(id: number): Observable<ContasSubgruposModel>;
-
+  listSubgrupos(idgrupo: number): Observable<ContasSubgruposModel[]>;
 }

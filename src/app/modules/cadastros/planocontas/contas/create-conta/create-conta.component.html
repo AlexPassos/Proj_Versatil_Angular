@@ -1,1 +1,43 @@
-<p>create-conta works!</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+  <div class="form-group col-md-10">
+    <mat-form-field>
+      <mat-label>Escolha o grupo</mat-label>
+      <mat-select formControlName="contasgruposID" (ngModelChange)="listarSubgrupos($event)" required>
+        <mat-option *ngFor="let grupo of listGrupos" [value]="grupo.id">
+          {{grupo.nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+  </div>
+
+  <div class="form-group col-md-10">
+    <mat-form-field>
+      <mat-label>Escolha o subgrupo</mat-label>
+      <mat-select formControlName="contassubgruposID" required>
+        <mat-option *ngFor="let grupo of listSubgrupos" [value]="grupo.id">
+          {{grupo.nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+  </div>
+
+  <div class="form-group col-md-10">
+
+    <mat-form-field>
+      <mat-label>Nome da conta</mat-label>
+      <input matInput formControlName="nome" required>
+    </mat-form-field>
+    <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+
+  </div>
+
+  <div class="row">
+    <button id="btnsalvar" type="submit" class="btn bg-gradient-info ">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="botaoVoltar('list')">Voltar</button>
+  </div>
+</form>
+
+<p-toast position="bottom-center" key="bc"></p-toast>

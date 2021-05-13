@@ -4,10 +4,12 @@
     <div class="card-title">1.{{grupo.codigo}} - {{grupo.nome}}</div>
 
     <div class="card-tools">
-      <button type="button" class="btn btn-tool btneditar">
+      <button type="button" class="btn btn-tool"
+      (click)="botaoEditar('edit-grupo', grupo)">
         <i class="fas fa-edit"></i>
       </button>
-      <button type="button" class="btn btn-tool btnexcluir" style="margin-right: 10px;">
+           <button type="button" class="btn btn-tool" style="margin-right: 10px;"
+      (click)="confirmPosition('bottom', grupo)">
         <i class="fas fa-trash"></i>
       </button>
       <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -17,9 +19,13 @@
   </div>
   <div class="card-body">
     <!--SUBGRUPOS-->
-      <app-list-subgrupo [grupo]="grupo"></app-list-subgrupo>
+      <app-list-subgrupo [grupo]="grupo" [trocaTela]="trocaTela"></app-list-subgrupo>
     <!--SUBGRUPOS-->
   </div>
   <!-- /.card-body-grupos -->
 
 </div>
+
+<p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="position" [baseZIndex]="10000" rejectButtonStyleClass="p-button-outlined"></p-confirmDialog>
+
+<p-toast position="bottom-center" key="bc"></p-toast>

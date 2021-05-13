@@ -74,5 +74,4 @@ const maskConfig: Partial<IConfig> = {
   ],
   providers:[PlanocontasService, ConfirmationService, MessageService]
 })
-
 export class PlanocontasModule { }

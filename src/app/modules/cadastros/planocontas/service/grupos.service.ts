@@ -25,20 +25,20 @@ export class GruposService implements IGruposService {
   constructor(private http: HttpClient) {}
 
   addGrupo(grupo: ContasGruposModel): Observable<string> {
-    this.apiUrl = `${environment.apiURL}/saveConta`;
+    this.apiUrl = `${environment.apiURL}/saveGrupo`;
 
     return this.http
       .post<string>(this.apiUrl, JSON.stringify(grupo), this.httpOptions)
       .pipe(take(1));
   }
   updateGrupo(grupo: ContasGruposModel): Observable<string> {
-    this.apiUrl = `${environment.apiURL}/updateConta`;
+    this.apiUrl = `${environment.apiURL}/updateGrupo`;
     return this.http
       .post<string>(this.apiUrl, JSON.stringify(grupo), this.httpOptions)
       .pipe(take(1));
   }
   deleteGrupo(grupo: ContasGruposModel) {
-    this.apiUrl = `${environment.apiURL}/deleteConta/${grupo.id}`;
+    this.apiUrl = `${environment.apiURL}/deleteGrupo/${grupo.id}`;
 
     return this.http.delete(this.apiUrl).subscribe({
       next: (dados) => {
@@ -59,15 +59,20 @@ export class GruposService implements IGruposService {
     return this.gruposModel;
   }
   consGrupo(id: number): Observable<ContasGruposModel> {
-    this.apiUrl = `${environment.apiURL}/getConta/${id}`;
+    this.apiUrl = `${environment.apiURL}/getGrupo/${id}`;
     return this.http.get<ContasGruposModel>(this.apiUrl);
   }
 
   maxCodigo(id: number) {
-    this.apiUrl = `${environment.apiURL}/getMaxCodigo/${id}`;
+    this.apiUrl = `${environment.apiURL}/getMaxCodigoGrupo/${id}`;
     return this.http.get(this.apiUrl).pipe(map((res: any) => {
       return res.data.map((x: any) => x.codigo + 1);
     }));
+  }
+
+  listGrupos(): Observable<ContasGruposModel[]> {
+    this.apiUrl = `${environment.apiURL}/listGrupos/1`;
+    return this.http.get<ContasGruposModel[]>(this.apiUrl);
   }
 
 }

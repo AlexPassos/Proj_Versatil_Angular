@@ -17,4 +17,6 @@ export interface IGruposService {
   consGrupo(id: number): Observable<ContasGruposModel>;
 
   maxCodigo(id: number): void;
+
+  listGrupos(): Observable<ContasGruposModel[]>;
 }

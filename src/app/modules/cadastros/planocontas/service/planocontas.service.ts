@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
 import { ContasDemonstrativosModel } from '../model/contasdemonstrativos-model';
@@ -15,6 +15,8 @@ import { ContasModel } from '../model/contas-model';
 })
 export class PlanocontasService implements IPlanoContasService {
 
+  private serviceBehaviorSubject = new BehaviorSubject<string>(`list`);
+
   private demonstrativosModel!: ContasDemonstrativosModel;
   private apiUrl = environment.apiURL;
 
@@ -27,18 +29,26 @@ export class PlanocontasService implements IPlanoContasService {
 
   constructor(private http: HttpClient) {}
 
+  alterarTela(valor: string) {
+    this.serviceBehaviorSubject.next(valor);
+  }
+
+  obterTela() {
+    return this.serviceBehaviorSubject;
+  }
+
   listDemonstrativos(): Observable<ContasDemonstrativosModel[]> {
     this.apiUrl = `${environment.apiURL}/listContasdemonstrativos`;
     return this.http.get<ContasDemonstrativosModel[]>(this.apiUrl);
   }
 
   listGrupos(): Observable<ContasGruposModel[]> {
-    this.apiUrl = `${environment.apiURL}/listContasgrupo/1`;
+    this.apiUrl = `${environment.apiURL}/listGrupos/1`;
     return this.http.get<ContasGruposModel[]>(this.apiUrl);
   }
 
   listSubgrupos(idgrupo: number): Observable<ContasSubgruposModel[]> {
-    this.apiUrl = `${environment.apiURL}/listContassubgrupo/${idgrupo}`;
+    this.apiUrl = `${environment.apiURL}/listSubgrupos/${idgrupo}`;
     return this.http.get<ContasSubgruposModel[]>(this.apiUrl);
   }
 

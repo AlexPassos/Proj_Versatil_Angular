@@ -3,39 +3,39 @@
     <div class="card-header">
       <div class="card-title">{{tituloPagina}}</div>
       <div class="card-tools">
-        <button class="btn bg-gradient-info btn-sm btncadastro" (click)="ExibirView('create-grupo')">
+        <button class="btn bg-gradient-info btn-sm btncadastro" (click)="newTela('create-grupo')">
           Cadastrar grupo
         </button>
-        <button class="btn bg-gradient-info btn-sm btncadastro" (click)="ExibirView('create-subgrupo')">
+        <button class="btn bg-gradient-info btn-sm btncadastro" (click)="newTela('create-subgrupo')">
           Cadastrar subgrupo
         </button>
-        <button class="btn bg-gradient-info btn-sm btncadastro" (click)="ExibirView('create-conta')">
+        <button class="btn bg-gradient-info btn-sm btncadastro" (click)="newTela('create-conta')">
           Cadastrar conta
         </button>
       </div>
     </div>
     <div class="card-body">
 
-      <div *ngIf="strView === 'list';">
-        <app-list></app-list>
+      <div *ngIf="trocaTela.value === 'list';">
+        <app-list [trocaTela]="trocaTela"></app-list>
       </div>
-      <div *ngIf="strView === 'create-grupo';">
-        <app-create-grupo (btnVoltar)="ExibirView($event)"></app-create-grupo>
+      <div *ngIf="trocaTela.value === 'create-grupo';">
+        <app-create-grupo [trocaTela]="trocaTela"></app-create-grupo>
       </div>
-      <div *ngIf="strView === 'edit-grupo';">
-        <!-- <app-edit (btnVoltar)="ExibirView($event)"></app-edit> -->
+      <div *ngIf="trocaTela.value === 'edit-grupo';">
+        <app-edit-grupo [trocaTela]="trocaTela"></app-edit-grupo>
       </div>
-      <div *ngIf="strView === 'create-subgrupo';">
-        <!-- <app-create (btnVoltar)="ExibirView($event)"></app-create> -->
+      <div *ngIf="trocaTela.value === 'create-subgrupo';">
+        <app-create-subgrupo [trocaTela]="trocaTela"></app-create-subgrupo>
       </div>
-      <div *ngIf="strView === 'edit-subgrupo';">
-        <!-- <app-edit (btnVoltar)="ExibirView($event)"></app-edit> -->
+      <div *ngIf="trocaTela.value === 'edit-subgrupo';">
+        <app-edit-subgrupo [trocaTela]="trocaTela"></app-edit-subgrupo>
       </div>
-      <div *ngIf="strView === 'create-conta';">
-        <!-- <app-create (btnVoltar)="ExibirView($event)"></app-create> -->
+      <div *ngIf="trocaTela.value === 'create-conta';">
+        <app-create-conta [trocaTela]="trocaTela"></app-create-conta>
       </div>
-      <div *ngIf="strView === 'edit-conta';">
-        <!-- <app-edit (btnVoltar)="ExibirView($event)"></app-edit> -->
+      <div *ngIf="trocaTela.value === 'edit-conta';">
+        <app-edit-conta [trocaTela]="trocaTela"></app-edit-conta>
       </div>
     </div>
   </div>

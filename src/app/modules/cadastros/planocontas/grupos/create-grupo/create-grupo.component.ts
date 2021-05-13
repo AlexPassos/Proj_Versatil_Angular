@@ -1,9 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 import { MessageService } from 'primeng/api';
 
 import { ContasGruposModel } from '../../model/contasgrupos-model';
+import { PlanocontasService } from './../../service/planocontas.service';
 import { GruposService } from './../../service/grupos.service';
 
 @Component({
@@ -12,14 +14,15 @@ import { GruposService } from './../../service/grupos.service';
   styleUrls: ['./create-grupo.component.css'],
 })
 export class CreateGrupoComponent implements OnInit {
-  @Output() btnVoltar = new EventEmitter<string>();
+
+  @Input() trocaTela!: BehaviorSubject<string>;
 
   formulario!: FormGroup;
   retorno!: string;
-  codigo!: number;
 
   constructor(
     private formBuilder: FormBuilder,
+    private planocontasService: PlanocontasService,
     private gruposService: GruposService,
     private messageService: MessageService
   ) {}
@@ -48,8 +51,9 @@ export class CreateGrupoComponent implements OnInit {
   maxCodigo() {
     this.gruposService.maxCodigo(1).subscribe(
       (data) => {
-        this.codigo = data[0];
         //console.log('Retorno: ', data[0]);
+        this.formulario.controls['codigo'].setValue( data[0]);
+        this.salvar();
       },
       (error) => {
         console.log('Erro: ', error);
@@ -66,15 +70,14 @@ export class CreateGrupoComponent implements OnInit {
   }
 
   botaoVoltar(value: string): void {
-    this.btnVoltar.emit(value);
+    this.trocaTela.next(value);
   }
 
   async onSubmit() {
+   await this.maxCodigo();
+  }
 
-    this.maxCodigo();
-    await this.formulario.controls['codigo'].setValue(this.codigo);
-    console.log(this.formulario.value);
-
+  salvar(){
     if (this.formulario.valid) {
       this.gruposService.addGrupo(this.formulario.value).subscribe({
         next: (dados) => {
@@ -97,7 +100,7 @@ export class CreateGrupoComponent implements OnInit {
           //Limpando o formulário
           this.createForm(new ContasGruposModel());
           setTimeout(() => {
-            this.btnVoltar.emit('list');
+            this.trocaTela.next('list');
           }, 1000);
         },
       });

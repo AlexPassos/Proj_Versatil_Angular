@@ -3,10 +3,12 @@
     <div class="card-title">1.{{grupo.codigo}}.{{subgrupo.codigo}}.{{conta.codigo}} - {{conta.nome}}</div>
 
     <div class="card-tools">
-      <button type="button" class="btn btn-tool btneditar">
+      <button type="button" class="btn btn-tool"
+      (click)="botaoEditar('edit-conta', conta)">
         <i class="fas fa-edit"></i>
       </button>
-      <button type="button" class="btn btn-tool btnexcluir" style="margin-right: 10px;">
+      <button type="button" class="btn btn-tool" style="margin-right: 10px;"
+      (click)="confirmPosition('bottom', conta)">
         <i class="fas fa-trash"></i>
       </button>
     </div>

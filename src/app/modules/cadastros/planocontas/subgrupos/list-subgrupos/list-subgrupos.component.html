@@ -3,10 +3,12 @@
     <div class="card-title">1.{{grupo.codigo}}.{{subgrupo.codigo}} - {{subgrupo.nome}}</div>
 
     <div class="card-tools">
-      <button type="button" class="btn btn-tool btneditar">
+      <button type="button" class="btn btn-tool"
+      (click)="botaoEditar('edit-subgrupo', subgrupo)">
         <i class="fas fa-edit"></i>
       </button>
-      <button type="button" class="btn btn-tool btnexcluir" style="margin-right: 10px;">
+      <button type="button" class="btn btn-tool btnexcluir" style="margin-right: 10px;"
+      (click)="confirmPosition('bottom', subgrupo)">
         <i class="fas fa-trash"></i>
       </button>
       <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -16,7 +18,7 @@
   </div>
   <div class="card-body" >
     <!--CONTAS-->
-    <app-list-contas [grupo]="grupo" [subgrupo]="subgrupo" ></app-list-contas>
+    <app-list-contas [grupo]="grupo" [subgrupo]="subgrupo" [trocaTela]="trocaTela" ></app-list-contas>
     <!--CONTAS-->
   </div>
   <!-- /.card-body-grupos -->
