@@ -1,0 +1,57 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+  <div class="form-group col-sm-2">
+    <mat-form-field>
+      <mat-label>Data do cadastro</mat-label>
+      <input matInput formControlName="datacad" [matDatepicker]="picker" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group col-md-10">
+    <mat-form-field>
+      <mat-label>Escolha o produto</mat-label>
+      <mat-select formControlName="estoquecadastroID" required>
+        <mat-option *ngFor="let produto of listProdutos" [value]="produto.id">
+          {{produto.descricao}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-error *ngIf="formulario.invalid">{{getErrorMessage()}}</mat-error>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Quantidade</mat-label>
+        <input matInput formControlName="quantidade">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <mat-form-field>
+        <mat-label>Valor de custo</mat-label>
+        <input matInput currencyMask formControlName="valor"
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-sm-10">
+      <mat-form-field>
+        <mat-label>Observações</mat-label>
+        <textarea matInput formControlName="obs" rows="4"></textarea>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <button id="btnsalvar" type="submit" class="btn bg-gradient-info ">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="botaoVoltar('list')">Voltar</button>
+  </div>
+</form>
+
+<p-toast position="bottom-center" key="bc"></p-toast>
