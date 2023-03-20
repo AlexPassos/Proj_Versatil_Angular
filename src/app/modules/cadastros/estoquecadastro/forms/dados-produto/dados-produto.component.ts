@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { UnidadesService } from 'src/app/shared/services/unidades.service';
 import { CfopService } from 'src/app/shared/services/cfop.service';
@@ -17,7 +17,7 @@ export class DadosProdutoComponent implements OnInit {
 
   @Output() verCpf = new EventEmitter<string>();
 
-  @Input() formulario!: FormGroup;
+  @Input() formulario!: UntypedFormGroup;
 
   tipo: boolean = true;
 

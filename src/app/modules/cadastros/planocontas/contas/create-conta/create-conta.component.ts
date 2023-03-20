@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 
 import { MessageService } from 'primeng/api';
@@ -20,7 +20,7 @@ export class CreateContaComponent implements OnInit {
 
   @Input() trocaTela!: BehaviorSubject<string>;
 
-  formulario!: FormGroup;
+  formulario!: UntypedFormGroup;
   retorno!: string;
   codigo!: number;
 
@@ -28,7 +28,7 @@ export class CreateContaComponent implements OnInit {
   listSubgrupos: ContasSubgruposModel[] = [];
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private gruposService: GruposService,
     private subgruposService: SubgruposService,
     private contasService: ContasService,

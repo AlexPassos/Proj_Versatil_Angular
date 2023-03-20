@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 
@@ -19,7 +19,7 @@ export class CreateComponent implements OnInit {
 
   @Output() btnVoltar = new EventEmitter<string>();
 
-  formulario!: FormGroup;
+  formulario!: UntypedFormGroup;
   retorno!: string;
 
   listEstados: UfModel[] = [];
@@ -27,7 +27,7 @@ export class CreateComponent implements OnInit {
   filterCidades: CidadeModel[] = this.listCidades.slice();
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private empresaService: EmpresasService,
     private estadosService: EstadosService,
     private cidadesService: CidadesService,

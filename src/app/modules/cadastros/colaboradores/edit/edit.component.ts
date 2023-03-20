@@ -5,7 +5,7 @@ import {
   EventEmitter,
   OnDestroy,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 import { of, Observable } from 'rxjs';
@@ -21,12 +21,12 @@ import { ColaboradoresService } from './../service/colaboradores.service';
 export class EditComponent implements OnInit, OnDestroy {
   @Output() btnVoltar = new EventEmitter<string>();
 
-  formulario!: FormGroup;
+  formulario!: UntypedFormGroup;
   frm$!: Observable<ColaboradorModel>;
   bSalvar = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private colaboradoresService: ColaboradoresService,
     private messageService: MessageService
   ) {}
