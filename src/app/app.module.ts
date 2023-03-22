@@ -1,10 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
-//Locale pt-BR
-import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';// IMPORTANT
 import localePt from '@angular/common/locales/pt';// IMPORTANT
 registerLocaleData(localePt); // IMPORTANT
@@ -22,16 +20,18 @@ import { PaginaErroComponent } from './pages/pagina-erro/pagina-erro.component';
 import { LoginComponent } from './pages/login/login.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacyOptionModule as MatOptionModule } from '@angular/material/legacy-core';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule,MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSelectFilterModule } from 'mat-select-filter';
-import { MatLegacyCheckboxModule as MatCheckboxModule} from '@angular/material/legacy-checkbox';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule} from '@angular/material/icon';
 import { VerificarestoqueComponent } from './modules/estoque/verificarestoque/verificarestoque.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask'
+
+
 
 @NgModule({
   declarations: [
@@ -61,9 +61,15 @@ import { VerificarestoqueComponent } from './modules/estoque/verificarestoque/ve
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
+  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'},  provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

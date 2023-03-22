@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {TableModule} from 'primeng/table';
@@ -35,6 +35,9 @@ import { ListComponent } from './list/list.component';
     TableModule,
     ToastModule,
     ConfirmDialogModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers:[SetoresService, ConfirmationService, MessageService]
 })

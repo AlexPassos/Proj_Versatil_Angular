@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: 'app-estoqueentrada',
-  templateUrl: './estoqueentrada.component.html',
+  selector: 'AppEstoqueEntrada',
+  templateUrl: 'estoqueentrada.component.html',
   styleUrls: ['./estoqueentrada.component.css']
 })
 export class EstoqueentradaComponent implements OnInit {
 
   tituloPagina = 'Entradas no estoque';
 
-  trocaTela = new BehaviorSubject<string>("list");
+  public trocaTela = new BehaviorSubject<string>("list");
 
   constructor() {
   }

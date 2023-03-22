@@ -11,7 +11,7 @@ import {
 } from 'primeng/api';
 
 @Component({
-  selector: 'app-list',
+  selector: 'AppList',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })

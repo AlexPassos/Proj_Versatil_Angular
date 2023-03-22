@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
 
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {TableModule} from 'primeng/table';
@@ -13,10 +13,6 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { VerificarestoqueRoutingModule } from './routes/verificarestoque-routing.module';
 import { VerificarEstoqueService } from './service/verificarestoque.service';
 import { VerificarestoqueComponent } from './verificarestoque.component';
-
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
 
 @NgModule({
   declarations: [
@@ -30,8 +26,13 @@ const maskConfig: Partial<IConfig> = {
     ToastModule,
     ConfirmDialogModule,
     CurrencyMaskModule,
-    NgxMaskModule.forRoot(maskConfig),
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers:[VerificarEstoqueService, ConfirmationService, MessageService]
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
+  providers:[VerificarEstoqueService, ConfirmationService, MessageService, provideNgxMask()]
 })
 export class VerificarestoqueModule { }

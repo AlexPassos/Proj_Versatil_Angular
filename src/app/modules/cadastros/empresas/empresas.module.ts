@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule,  } from '@angular/forms';
-import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacyOptionModule as MatOptionModule } from '@angular/material/legacy-core';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSelectFilterModule } from 'mat-select-filter';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
 
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {TableModule} from 'primeng/table';
@@ -24,9 +24,6 @@ import { EditComponent } from './edit/edit.component';
 
 //https://www.npmjs.com/package/mat-select-filter
 //https://www.npmjs.com/package/ngx-mask
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
 
 @NgModule({
   imports: [
@@ -43,7 +40,8 @@ const maskConfig: Partial<IConfig> = {
     TableModule,
     ToastModule,
     ConfirmDialogModule,
-    NgxMaskModule.forRoot(maskConfig),
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   declarations: [
     EmpresasComponent,
@@ -51,6 +49,6 @@ const maskConfig: Partial<IConfig> = {
     CreateComponent,
     EditComponent
   ],
-  providers:[EmpresasService, ConfirmationService, MessageService]
+  providers:[EmpresasService, ConfirmationService, MessageService, provideNgxMask()]
 })
 export class EmpresasModule { }

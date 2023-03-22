@@ -1,18 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
-import { MatLegacyCheckboxModule as MatCheckboxModule} from '@angular/material/legacy-checkbox';
+import { MatInputModule} from '@angular/material/input';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDatepickerModule} from '@angular/material/datepicker';
-import { MatLegacyOptionModule as MatOptionModule } from '@angular/material/legacy-core';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSelectFilterModule } from 'mat-select-filter';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule} from '@angular/material/icon';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask'
 
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {TableModule} from 'primeng/table';
@@ -25,10 +25,6 @@ import { EstoquesaidaComponent } from './estoquesaida.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { ListComponent } from './list/list.component';
-
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
 
 @NgModule({
   declarations: [
@@ -55,8 +51,12 @@ const maskConfig: Partial<IConfig> = {
     ToastModule,
     ConfirmDialogModule,
     CurrencyMaskModule,
-    NgxMaskModule.forRoot(maskConfig),
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers:[EstoquesaidaService, ConfirmationService, MessageService]
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+  providers:[EstoquesaidaService, ConfirmationService, MessageService, provideNgxMask()]
 })
 export class EstoquesaidaModule { }

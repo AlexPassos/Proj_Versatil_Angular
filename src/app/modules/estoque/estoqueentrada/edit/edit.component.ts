@@ -10,7 +10,7 @@ import { EstoqueentradaService } from './../service/estoqueentrada.service';
 import { EstoquecadastroService } from 'src/app/modules/cadastros/estoquecadastro/service/estoquecadastro.service';
 
 @Component({
-  selector: 'app-edit',
+  selector: 'AppEdit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
