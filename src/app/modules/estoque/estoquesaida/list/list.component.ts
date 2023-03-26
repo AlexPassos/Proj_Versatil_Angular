@@ -13,13 +13,12 @@ import {
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-
   @Input() trocaTela!: BehaviorSubject<string>;
 
-  loading: boolean= false;
+  loading: boolean = false;
 
   position!: string;
   listSaidas: EstoqueSaidaModel[] = [];
@@ -37,12 +36,11 @@ export class ListComponent implements OnInit {
   }
 
   listarSaidas(): void {
-   this.estoquesaidaService.listSaidas().subscribe(data => {
-    this.listSaidas = data;
-    console.log("Retorno: ", data);
-   }, error =>{
-    console.log("Error: ", error);
-   });
+    this.estoquesaidaService.listSaidas().subscribe({
+      next: (data) => (this.listSaidas = data),
+      error: (error) => console.log('Error: ', error),
+      complete: () => console.log('Completo Sucesso'),
+    });
   }
 
   botaoEditar(value: string, saida: EstoqueSaidaModel): void {
@@ -75,7 +73,6 @@ export class ListComponent implements OnInit {
         setTimeout(() => {
           this.listarSaidas();
         }, 1000);
-
       },
       reject: (type: any) => {
         switch (type) {
@@ -88,5 +85,4 @@ export class ListComponent implements OnInit {
       key: 'positionDialog',
     });
   }
-
 }

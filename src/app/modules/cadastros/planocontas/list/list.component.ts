@@ -15,13 +15,12 @@ import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-
   @Input() trocaTela!: BehaviorSubject<string>;
 
-  loading: boolean= false;
+  loading: boolean = false;
 
   position!: string;
   listDemonstrativos: ContasDemonstrativosModel[] = [];
@@ -38,12 +37,10 @@ export class ListComponent implements OnInit {
   }
 
   listarDemonstrativos(): void {
-   this.planocontasService.listDemonstrativos().subscribe(data => {
-    this.listDemonstrativos = data;
-    //console.log("Retorno: ", data);
-   }, error =>{
-    console.log("Error: ", error);
-   });
+    this.planocontasService.listDemonstrativos().subscribe({
+      next: (data) => (this.listDemonstrativos = data),
+      error: (error) => console.log('Error: ', error),
+      complete: () => console.log('Completo Sucesso'),
+    });
   }
-
 }

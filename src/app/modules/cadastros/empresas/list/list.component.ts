@@ -1,7 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api';
+import {
+  ConfirmationService,
+  ConfirmEventType,
+  MessageService,
+} from 'primeng/api';
 
 import { EmpresaModel } from './../model/empresa-model';
 import { EmpresasService } from './../service/empresas.service';
@@ -9,10 +13,9 @@ import { EmpresasService } from './../service/empresas.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-
   @Output() btnEditar = new EventEmitter<string>();
 
   position!: string;
@@ -31,15 +34,11 @@ export class ListComponent implements OnInit {
   }
 
   listarEmpresas(): void {
-    this.EmpresaService.listEmpresas().subscribe(
-       dados => {
-        this.listEmpresas = dados;
-        //console.log("Retorno: ", this.listEmpresas);
-      },
-      error => {
-        console.log("Error: ", error);
-      }
-    );
+    this.EmpresaService.listEmpresas().subscribe({
+      next: (dados) => (this.listEmpresas = dados),
+      error: (error) => console.log('Error: ', error),
+      complete: () => console.log('Completo Sucesso')
+    });
   }
 
   botaoEditar(value: string, Empresa: EmpresaModel): void {
@@ -69,10 +68,9 @@ export class ListComponent implements OnInit {
           detail: 'Operação realizada com sucesso',
         });
 
-        setTimeout(() =>{
+        setTimeout(() => {
           this.listarEmpresas();
         }, 1000);
-
       },
       reject: (type: any) => {
         switch (type) {
@@ -85,5 +83,4 @@ export class ListComponent implements OnInit {
       key: 'positionDialog',
     });
   }
-
 }

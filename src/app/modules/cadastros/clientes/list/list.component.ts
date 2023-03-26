@@ -37,11 +37,10 @@ export class ListComponent implements OnInit {
   }
 
   listarClientes(): void {
-   this.clientesService.listClientes().subscribe(data => {
-    this.listClientes = data;
-    //console.log("Retorno: ", data);
-   }, error =>{
-    console.log("Error: ", error);
+   this.clientesService.listClientes().subscribe({
+    next: (data) => this.listClientes = data,
+    error: (e) =>   console.log("Error: ", e),
+    complete: () => console.log("Completo Sucesso")
    });
   }
 
