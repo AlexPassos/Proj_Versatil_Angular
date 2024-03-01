@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { SituacoesTributariasService } from 'src/app/shared/services/situacoes-tributarias.service';
 import { SitTributariaIcmsModel } from 'src/app/shared/models/sit-tributaria-icms-model';
@@ -14,7 +14,7 @@ import { SitTributariaIpiModel } from 'src/app/shared/models/sit-tributaria-ipi-
 })
 export class InfoTributariaComponent implements OnInit {
 
-  @Input() formulario!: FormGroup;
+  @Input() formulario!: UntypedFormGroup;
 
   habilitado: boolean = false;
 

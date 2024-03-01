@@ -5,7 +5,7 @@ import {
   EventEmitter,
   OnDestroy,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 import { of, Observable } from 'rxjs';
@@ -22,12 +22,12 @@ export class CreateComponent implements OnInit, OnDestroy {
 
   @Output() btnVoltar = new EventEmitter<string>();
 
-  formulario!: FormGroup;
+  formulario!: UntypedFormGroup;
   frm$!: Observable<ClienteModel>;
   bSalvar = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private clientesService: ClientesService,
     private messageService: MessageService
   ) {}

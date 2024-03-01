@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 import { BehaviorSubject } from 'rxjs';
@@ -16,11 +16,11 @@ export class EditGrupoComponent implements OnInit {
 
   @Input() trocaTela!: BehaviorSubject<string>;
 
-  formulario!: FormGroup;
+  formulario!: UntypedFormGroup;
   retorno!: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private gruposService: GruposService,
     private messageService: MessageService
   ) {}

@@ -37,12 +37,18 @@ export class ListComponent implements OnInit {
   }
 
   listarColaboradores(): void {
-   this.colaboradoresService.listColaboradores().subscribe(data => {
-    this.listColaboradores = data;
-    //console.log("Retorno: ", data);
-   }, error =>{
-    console.log("Error: ", error);
-   });
+    this.colaboradoresService.listColaboradores().subscribe({
+      next:(data) =>  this.listColaboradores = data,
+      error: (e) => console.log("Erro: ", e),
+      complete: () => console.log("complete")
+     });
+
+    //  this.colaboradoresService.listColaboradores().subscribe(data => {
+  //   this.listColaboradores = data;
+  //   //console.log("Retorno: ", data);
+  //  }, error =>{
+  //   console.log("Error: ", error);
+  //  });
   }
 
   botaoEditar(value: string, colaborador: ColaboradorModel): void {

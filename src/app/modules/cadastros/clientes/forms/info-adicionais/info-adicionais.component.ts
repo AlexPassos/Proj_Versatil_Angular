@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { ProfissoesService } from 'src/app/shared/services/profissoes.service';
 import { ProfissaoModel } from 'src/app/shared/models/profissao-model';
@@ -11,7 +11,7 @@ import { ProfissaoModel } from 'src/app/shared/models/profissao-model';
 })
 export class InfoAdicionaisComponent implements OnInit {
 
-  @Input() formulario!: FormGroup;
+  @Input() formulario!: UntypedFormGroup;
 
   habilitado: boolean = false;
 

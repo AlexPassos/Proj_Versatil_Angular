@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-acesso',
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./acesso.component.css'],
 })
 export class AcessoComponent implements OnInit {
-  @Input() formulario!: FormGroup;
+  @Input() formulario!: UntypedFormGroup;
 
   hide = false;
   habilitado: boolean = false;

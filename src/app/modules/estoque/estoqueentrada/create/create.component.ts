@@ -1,5 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+<<<<<<< HEAD
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+=======
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
 import { BehaviorSubject } from 'rxjs';
 
 import { MessageService } from 'primeng/api';
@@ -10,22 +14,36 @@ import { EstoqueentradaService } from './../service/estoqueentrada.service';
 import { EstoquecadastroService } from 'src/app/modules/cadastros/estoquecadastro/service/estoquecadastro.service';
 
 @Component({
+<<<<<<< HEAD
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
+=======
+  selector: 'AppCreate',
+  templateUrl: 'create.component.html',
+  styleUrls: ['create.component.css']
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
 })
 export class CreateComponent implements OnInit {
 
   @Input() trocaTela!: BehaviorSubject<string>;
 
+<<<<<<< HEAD
   formulario!: FormGroup;
+=======
+  formulario!: UntypedFormGroup;
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
   retorno!: string;
   codigo!: number;
 
   listProdutos: EstoqueCadastroModel[] = [];
 
   constructor(
+<<<<<<< HEAD
     private formBuilder: FormBuilder,
+=======
+    private formBuilder: UntypedFormBuilder,
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
     private entradaService: EstoqueentradaService,
     private produtosService: EstoquecadastroService,
     private messageService: MessageService
