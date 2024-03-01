@@ -31,6 +31,7 @@ import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule} from '@angular/material/icon';
+import { VerificarestoqueComponent } from './modules/estoque/verificarestoque/verificarestoque.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatIconModule} from '@angular/material/icon';
     HomeComponent,
     PaginaErroComponent,
     LoginComponent,
+    VerificarestoqueComponent,
   ],
   imports: [
     BrowserModule,

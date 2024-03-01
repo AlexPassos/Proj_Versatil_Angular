@@ -1,0 +1,25 @@
+<div class="containerPage">
+  <div class="card card-info card-outline">
+      <div class="card-header">
+          <div class="card-title">{{tituloPagina}}</div>
+          <div class="card-tools">
+              <button class="btn bg-gradient-info btn-sm btncadastro" (click)="newTela('create')">
+                 Novo cadastro
+              </button>
+          </div>
+      </div>
+      <div class="card-body">
+
+          <div *ngIf="trocaTela.value === 'list';">
+            <app-list [trocaTela]="trocaTela"></app-list>
+          </div>
+          <div *ngIf="trocaTela.value === 'create';">
+            <app-create [trocaTela]="trocaTela"></app-create>
+          </div>
+          <div *ngIf="trocaTela.value === 'edit';">
+            <app-edit [trocaTela]="trocaTela"></app-edit>
+          </div>
+
+      </div>
+  </div>
+</div>

@@ -26,8 +26,7 @@
               <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
               <li class="nav-item">
-                  <a class="nav-link navbar-info active"
-                      asp-action="Index" asp-controller="Home">
+                  <a routerLink="/" class="nav-link navbar-info active">
                       <i class="nav-icon fas fa-home"></i>
                       <p>
                           Home
@@ -76,7 +75,7 @@
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a routerLink="estoquecadastro" class="nav-link">
+                          <a routerLink="/estoquecadastro" class="nav-link">
                               <i class="fas fa-angle-right nav-icon"></i>
                               <p>Cadastro de produtos</p>
                           </a>
@@ -182,25 +181,25 @@
                   </a>
                   <ul class="nav nav-treeview">
                       <li class="nav-item">
-                          <a href="pages/mailbox/mailbox.html" class="nav-link">
+                          <a href="#" class="nav-link">
                               <i class="fas fa-angle-right nav-icon"></i>
                               <p>Verificar estoque</p>
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" asp-action="Index" asp-controller="EstoqueEntrada">
+                          <a routerLink="/estoqueentrada" class="nav-link">
                               <i class="fas fa-angle-right nav-icon"></i>
                               <p>Entrada no estoque</p>
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a href="pages/mailbox/read-mail.html" class="nav-link">
+                          <a routerLink="/estoquesaida" class="nav-link">
                               <i class="fas fa-angle-right nav-icon"></i>
                               <p>Saída do estoque</p>
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a href="pages/mailbox/read-mail.html" class="nav-link">
+                          <a href="#" class="nav-link">
                               <i class="fas fa-angle-right nav-icon"></i>
                               <p>Tabela de preços</p>
                           </a>

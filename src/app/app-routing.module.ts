@@ -19,6 +19,8 @@ const routes: Routes = [
   {path: 'clientes', loadChildren: () => import('./modules/cadastros/clientes/clientes.module').then(m => m.ClientesModule) },
   {path: 'estoquecadastro', loadChildren: () => import('./modules/cadastros/estoquecadastro/estoquecadastro.module').then(m => m.EstoquecadastroModule) },
   {path: 'planocontas', loadChildren: () => import('./modules/cadastros/planocontas/planocontas.module').then(m => m.PlanocontasModule) },
+  {path: 'estoqueentrada', loadChildren: () => import('./modules/estoque/estoqueentrada/estoqueentrada.module').then(m => m.EstoqueentradaModule) },
+  {path: 'estoquesaida', loadChildren: () => import('./modules/estoque/estoquesaida/estoquesaida.module').then(m => m.EstoquesaidaModule) },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PaginaErroComponent}
 ];
