@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask'
 
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {TableModule} from 'primeng/table';
@@ -28,10 +28,6 @@ import { ListComponent } from './list/list.component';
 import { DadosPessoaisComponent } from './forms/dados-pessoais/dados-pessoais.component';
 import { InfoAdicionaisComponent } from './forms/info-adicionais/info-adicionais.component';
 import { ObservacoesComponent } from './forms/observacoes/observacoes.component';
-
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
 
 @NgModule({
   declarations: [
@@ -61,8 +57,9 @@ const maskConfig: Partial<IConfig> = {
     ToastModule,
     ConfirmDialogModule,
     CurrencyMaskModule,
-    NgxMaskModule.forRoot(maskConfig),
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers:[ClientesService, ConfirmationService, MessageService]
+  providers:[ClientesService, ConfirmationService, MessageService,  provideNgxMask()]
 })
 export class ClientesModule { }

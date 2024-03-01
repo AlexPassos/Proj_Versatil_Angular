@@ -11,6 +11,7 @@
       <div class="card-body">
 
           <div *ngIf="trocaTela.value === 'list';">
+<<<<<<< HEAD
             <app-list [trocaTela]="trocaTela"></app-list>
           </div>
           <div *ngIf="trocaTela.value === 'create';">
@@ -18,6 +19,15 @@
           </div>
           <div *ngIf="trocaTela.value === 'edit';">
             <app-edit [trocaTela]="trocaTela"></app-edit>
+=======
+            <AppList [trocaTela]="trocaTela"></AppList>
+          </div>
+          <div *ngIf="trocaTela.value === 'create';">
+            <AppCreate [trocaTela]="trocaTela"></AppCreate>
+          </div>
+          <div *ngIf="trocaTela.value === 'edit';">
+            <AppEdit [trocaTela]="trocaTela"></AppEdit>
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
           </div>
 
       </div>

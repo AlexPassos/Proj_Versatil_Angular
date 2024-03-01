@@ -13,13 +13,12 @@ import {
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-
   @Output() btnEditar = new EventEmitter<string>();
 
-  loading: boolean= false;
+  loading: boolean = false;
 
   position!: string;
   listMarcas: MarcaModel[] = [];
@@ -37,12 +36,11 @@ export class ListComponent implements OnInit {
   }
 
   listarMarcas(): void {
-   this.MarcaService.listMarcas().subscribe(data => {
-    this.listMarcas = data;
-    console.log("Retorno: ", data);
-   }, error =>{
-    console.log("Error: ", error);
-   });
+    this.MarcaService.listMarcas().subscribe({
+      next: (data) => (this.listMarcas = data),
+      error: (error) => console.log('Error: ', error),
+      complete: () => console.log('Completo Sucesso'),
+    });
 
     // this.MarcaService.listMarcas().subscribe({
     //   next: (dados) => {
@@ -93,7 +91,6 @@ export class ListComponent implements OnInit {
           this.listarMarcas();
           //window.location.reload();
         }, 1000);
-
       },
       reject: (type: any) => {
         switch (type) {
@@ -110,5 +107,4 @@ export class ListComponent implements OnInit {
       key: 'positionDialog',
     });
   }
-
 }

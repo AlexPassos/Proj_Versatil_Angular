@@ -13,13 +13,12 @@ import {
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-
   @Output() btnEditar = new EventEmitter<string>();
 
-  loading: boolean= false;
+  loading: boolean = false;
 
   position!: string;
   listProdutos: EstoqueCadastroModel[] = [];
@@ -37,12 +36,11 @@ export class ListComponent implements OnInit {
   }
 
   listarProdutos(): void {
-   this.estoquecadastroService.listProdutos().subscribe(data => {
-    this.listProdutos = data;
-    //console.log("Retorno: ", data);
-   }, error =>{
-    console.log("Error: ", error);
-   });
+    this.estoquecadastroService.listProdutos().subscribe({
+      next: (data) => (this.listProdutos = data),
+      error: (error) => console.log('Error: ', error),
+      complete: () => console.log('Completo Sucesso')
+    });
   }
 
   botaoEditar(value: string, produto: EstoqueCadastroModel): void {
@@ -75,7 +73,6 @@ export class ListComponent implements OnInit {
         setTimeout(() => {
           this.listarProdutos();
         }, 1000);
-
       },
       reject: (type: any) => {
         switch (type) {
@@ -88,5 +85,4 @@ export class ListComponent implements OnInit {
       key: 'positionDialog',
     });
   }
-
 }

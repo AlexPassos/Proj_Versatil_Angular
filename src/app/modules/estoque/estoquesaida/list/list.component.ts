@@ -13,6 +13,7 @@ import {
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
+<<<<<<< HEAD
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
@@ -20,6 +21,14 @@ export class ListComponent implements OnInit {
   @Input() trocaTela!: BehaviorSubject<string>;
 
   loading: boolean= false;
+=======
+  styleUrls: ['./list.component.css'],
+})
+export class ListComponent implements OnInit {
+  @Input() trocaTela!: BehaviorSubject<string>;
+
+  loading: boolean = false;
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
 
   position!: string;
   listSaidas: EstoqueSaidaModel[] = [];
@@ -37,12 +46,20 @@ export class ListComponent implements OnInit {
   }
 
   listarSaidas(): void {
+<<<<<<< HEAD
    this.estoquesaidaService.listSaidas().subscribe(data => {
     this.listSaidas = data;
     console.log("Retorno: ", data);
    }, error =>{
     console.log("Error: ", error);
    });
+=======
+    this.estoquesaidaService.listSaidas().subscribe({
+      next: (data) => (this.listSaidas = data),
+      error: (error) => console.log('Error: ', error),
+      complete: () => console.log('Completo Sucesso'),
+    });
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
   }
 
   botaoEditar(value: string, saida: EstoqueSaidaModel): void {
@@ -75,7 +92,10 @@ export class ListComponent implements OnInit {
         setTimeout(() => {
           this.listarSaidas();
         }, 1000);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
       },
       reject: (type: any) => {
         switch (type) {
@@ -88,5 +108,8 @@ export class ListComponent implements OnInit {
       key: 'positionDialog',
     });
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
 }

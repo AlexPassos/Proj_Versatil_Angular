@@ -18,7 +18,7 @@ import {
 export class ListComponent implements OnInit {
   @Output() btnEditar = new EventEmitter<string>();
 
-  loading: boolean= false;
+  loading: boolean = false;
 
   position!: string;
   listBancos: BancoModel[] = [];
@@ -36,12 +36,11 @@ export class ListComponent implements OnInit {
   }
 
   listarBancos(): void {
-   this.bancoService.listBancos().subscribe(data => {
-    this.listBancos = data;
-    console.log("Retorno: ", data);
-   }, error =>{
-    console.log("Error: ", error);
-   });
+    this.bancoService.listBancos().subscribe({
+      next: (data) => (this.listBancos = data),
+      error: (e) => console.log('Error: ', e),
+      complete: () => console.log('Completo Sucesso')
+    });
 
     // this.bancoService.listBancos().subscribe({
     //   next: (dados) => {
@@ -92,7 +91,6 @@ export class ListComponent implements OnInit {
           this.listarBancos();
           //window.location.reload();
         }, 1000);
-
       },
       reject: (type: any) => {
         switch (type) {

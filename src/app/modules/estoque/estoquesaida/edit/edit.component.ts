@@ -1,5 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+<<<<<<< HEAD
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+=======
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
 import { BehaviorSubject } from 'rxjs';
 
 import { MessageService } from 'primeng/api';
@@ -18,14 +22,22 @@ export class EditComponent implements OnInit {
 
   @Input() trocaTela!: BehaviorSubject<string>;
 
+<<<<<<< HEAD
   formulario!: FormGroup;
+=======
+  formulario!: UntypedFormGroup;
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
   retorno!: string;
   codigo!: number;
 
   listProdutos: EstoqueCadastroModel[] = [];
 
   constructor(
+<<<<<<< HEAD
     private formBuilder: FormBuilder,
+=======
+    private formBuilder: UntypedFormBuilder,
+>>>>>>> 40f8a50e6af5823001df9dfe2064a10599f9c705
     private saidaService: EstoquesaidaService,
     private produtosService: EstoquecadastroService,
     private messageService: MessageService

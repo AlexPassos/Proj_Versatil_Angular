@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { EstadosService } from 'src/app/shared/services/estados.service';
 import { CidadesService } from 'src/app/shared/services/cidades.service';
@@ -14,7 +14,7 @@ import { CidadeModel } from 'src/app/shared/models/cidade-model';
 export class DadosPessoaisComponent implements OnInit {
   @Output() verCpf = new EventEmitter<string>();
 
-  @Input() formulario!: FormGroup;
+  @Input() formulario!: UntypedFormGroup;
 
   tipo: boolean = true;
 
